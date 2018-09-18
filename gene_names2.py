@@ -14,7 +14,7 @@ count = 0
 for line in fileinput.input(['/home/singhkak/assignment3/data/Homo_sapiens.GRCh37.75.gtf']):
     if re.match (r'.*\t.*\tgene\t', line):
         gene_name = re.findall('gene_name \"(.*?)\";', line)
-        chromosome = re.findall('^..', line)
+        chromosome = re.findall('^(.*?)\t', line)
         start_pos = re.findall('\tgene\t(.*?)\t', line)
         end_pos = re.findall('\tgene\t\d+\t(.*?)\t\.', line)
         count = count + 1
